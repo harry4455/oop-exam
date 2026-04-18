@@ -1,18 +1,17 @@
 package org.eternity.exam;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
-
-import org.eternity.exam.SerializedLecture;
 
 @Component
 public class FileLectureStorage implements LectureStorage{
 
     private final String baseFileName;
 
-    public FileLectureStorage(String baseFileName) {
+    public FileLectureStorage(@Value("${lecture.file.name:lecture") String baseFileName) {
         this.baseFileName = baseFileName;
     }
 
